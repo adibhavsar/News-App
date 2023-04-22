@@ -11,6 +11,7 @@ function Home() {
   const [data, setData] = useState([]);
   const [category, setCategory] = useState("world");
   const [language, setLanguage] = useState("en");
+  
 
   async function getData() {
     const { data } = await axios.get(
@@ -20,10 +21,13 @@ function Home() {
     console.log("Home");
   }
 
+  
+
   useEffect(() => {
     getData();
   }, [category, language]);
   const navigate = useNavigate();
+
 
   return (
     <div>
@@ -34,19 +38,17 @@ function Home() {
       ) : (
         <div className="news-cards">
           <ul className="btn">
-            <li><Button><h2>Recommendations</h2></Button></li>
-          <li><Button  onClick={() => setCategory("world")}>World</Button></li>
-          <li><Button  onClick={() => setCategory("top")}>Breaking News</Button></li>
-          <li><Button  onClick={() => setCategory("business")}>Business</Button></li>
-          <li><Button  onClick={() => setCategory("sports")}>Sports</Button></li>
-          <li><Button  onClick={() => setCategory("health")}>Health</Button></li>
-          <li><Button  onClick={() => setCategory("technology")}>Technology</Button></li>
-          <li><Button  onClick={() => setCategory("food")}>Food</Button></li>
-          <li><Button  onClick={() => setCategory("entertainment")}>Entertainment</Button></li>
-          <li><Button  onClick={() => setCategory("science")}>Science</Button></li>
-          <li><Button><b>Language---</b></Button></li>
-          <li><Button  onClick={() => setLanguage("hi")}>Hindi</Button></li>
-          <li><Button  onClick={() => setLanguage("en")}>Eng</Button></li>
+          <li id="recom"><h2>Recommendations</h2></li>&nbsp;&nbsp;&nbsp;&nbsp;
+          <li><Button  onClick={() => setCategory("world")}>World</Button></li>&nbsp;&nbsp;
+          <li><Button  onClick={() => setCategory("top")}>Breaking News</Button></li>&nbsp;&nbsp;
+          <li><Button  onClick={() => setCategory("business")}>Business</Button></li>&nbsp;&nbsp;
+          <li><Button  onClick={() => setCategory("sports")}>Sports</Button></li>&nbsp;&nbsp;
+          <li><Button  onClick={() => setCategory("health")}>Health</Button></li>&nbsp;&nbsp;
+          <li><Button  onClick={() => setCategory("technology")}>Technology</Button></li>&nbsp;&nbsp;
+          <li><Button  onClick={() => setCategory("entertainment")}>Entertainment</Button></li>&nbsp;&nbsp;
+          <li><Button  onClick={() => setCategory("science")}>Science</Button></li>&nbsp;&nbsp;
+          <li><Button  onClick={() => setLanguage("hi")}>Hindi</Button></li>&nbsp;&nbsp;
+          <li><Button  onClick={() => setLanguage("en")}>English</Button></li>
           </ul>
           {Array.isArray(data) &&data.map((val, indx) => (
               <div key={indx} onClick={() => navigate(`card/${indx}`)}>

@@ -13,7 +13,7 @@ export default function MediaCard({ val }) {
   const month = months[new Date(val?.pubDate).getMonth()];
   const year = new Date(val?.pubDate).getFullYear();
   return (
-    <Card sx={{ width: 400, height: 450, marginTop: "20px",border: "5px solid #333333"}}>
+    <Card sx={{ width: 450, height: 500, marginTop: "20px",border: "5px solid #0c4468"}}>
       <Typography variant="h6" sx={{ opacity: "0.8" }} align="center">
         {`${day}  ${month}  ${year} `}
       </Typography>

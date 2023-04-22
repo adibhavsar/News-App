@@ -13,6 +13,7 @@ export default function NewsCard() {
   const [data, setData] = useState('');
   const [category, setCategory] = useState('world');
   const [language, setLanguage] = useState("en");
+ 
 
   async function getData() {
     const { data } = await axios.get(`https://newsdata.io/api/1/news?&category=${category}&language${language}&apikey=pub_189097370e2bc62dde9d9a43821bb78b016a7`);
@@ -45,9 +46,9 @@ export default function NewsCard() {
                 {data.content}
                 <br/>
                 <br/>
-                <p>
+                <p><h3>
                   <b>{data.description}</b>
-                </p>
+                </h3></p>
               </Typography>
             </CardContent>
           </CardActionArea>
